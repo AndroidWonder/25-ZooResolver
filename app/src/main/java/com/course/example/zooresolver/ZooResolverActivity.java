@@ -26,7 +26,25 @@ public class ZooResolverActivity extends Activity {
         
         //the database is located through the uri
         Uri uri = Animal.CONTENT_URI;
-        
+
+        text.append("\n Contents initially: \n\n");
+        //query animals to see what's in database already
+        Cursor cur = getContentResolver().query(uri, null, null, null, null);
+        if (cur != null) {
+            while (cur.moveToNext()) {
+
+                id = cur.getLong(cur.getColumnIndex(BaseColumns._ID));
+                name = cur.getString(cur.getColumnIndex(Animal.NAME));
+                quantity = cur.getInt(cur.getColumnIndex(Animal.QUANTITY));
+                text.append(name + " " + quantity + " " + "\n");
+            }
+        }
+
+        cur.close();
+
+        //make some changes
+        text.append("\n Contents after updates: \n\n");
+
         //delete animals table content
         getContentResolver().delete(uri, null, null);
         
@@ -63,9 +81,9 @@ public class ZooResolverActivity extends Activity {
     	
     	//delete tiger
     	getContentResolver().delete(uri, "name=?", new String[] {"tiger"});
-            
+
         //query animals
-        Cursor cur = getContentResolver().query(uri, null, null, null, null);
+        cur = getContentResolver().query(uri, null, null, null, null);
         if (cur != null) {
             while (cur.moveToNext()) {
                 
