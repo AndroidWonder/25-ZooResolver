@@ -86,8 +86,6 @@ public class ZooResolverActivity extends Activity {
         cur = getContentResolver().query(uri, null, null, null, null);
         if (cur != null) {
             while (cur.moveToNext()) {
-                
-                id = cur.getLong(cur.getColumnIndex(BaseColumns._ID));
                 name = cur.getString(cur.getColumnIndex(Animal.NAME));
                 quantity = cur.getInt(cur.getColumnIndex(Animal.QUANTITY));
                 text.append(name + " " + quantity + " " + "\n");
