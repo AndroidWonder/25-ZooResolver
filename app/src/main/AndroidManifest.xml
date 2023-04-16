@@ -19,6 +19,9 @@
         </activity>
 
     </application>
+    <permission android:name="com.permission.testRead" />
     <uses-permission android:name="com.permission.testRead" />
+
+    <permission android:name="com.permission.testWrite" />
     <uses-permission android:name="com.permission.testWrite" />
 </manifest>
