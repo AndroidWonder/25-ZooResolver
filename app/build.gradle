@@ -5,8 +5,8 @@ android {
 
     defaultConfig {
         applicationId "com.course.example.zooresolver"
-        minSdkVersion 17
-        targetSdkVersion 30
+        minSdkVersion 28
+        targetSdkVersion 33
 
     }
 
@@ -16,7 +16,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
-    buildToolsVersion '33.0.1'
+
     namespace 'com.course.example.zooresolver'
 }
 
